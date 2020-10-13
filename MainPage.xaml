@@ -10,7 +10,5 @@
 
     <Grid Background="Transparent">
         <Button x:Name="button" IsEnabled="True" Visibility="Visible" Content="Hello World" HorizontalAlignment="Left" Margin="120,98,0,510" VerticalAlignment="Stretch" Click="Button_Click" Height="34" Width="132"/>
-        <TextBlock x:Name="textBlock" Foreground="BlueViolet" HorizontalAlignment="Left" Margin="101,59,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="132"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="213,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
     </Grid>
 </Page>
