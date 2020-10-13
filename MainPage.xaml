@@ -8,17 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="3436.963" d:DesignHeight="1674.467">
 
-    <!--<Grid HorizontalAlignment="Right" Width="3437" RenderTransformOrigin="0.274,0.517">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1755*"/>
-            <ColumnDefinition Width="1682*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="Button" Content="Hello World" Grid.ColumnSpan="2" Height="455" Margin="971,442,0,0" VerticalAlignment="Top" Width="1496" RenderTransformOrigin="0.474,1.287" FontSize="72"/>
-    </Grid>-->
     <Grid Background="Transparent">
         <Button x:Name="button" IsEnabled="True" Visibility="Visible" Content="Hello World" HorizontalAlignment="Left" Margin="120,98,0,510" VerticalAlignment="Stretch" Click="Button_Click"/>
-        <!--<TextBlock x:Name="textBlock" Foreground="BlueViolet" HorizontalAlignment="Left" Margin="101,59,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="132"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="213,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>-->
-
+        <TextBlock x:Name="textBlock" Foreground="BlueViolet" HorizontalAlignment="Left" Margin="101,59,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="132"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="213,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
     </Grid>
 </Page>
