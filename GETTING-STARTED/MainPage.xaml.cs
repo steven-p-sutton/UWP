@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,18 @@ namespace GETTING_STARTED
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        // https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track
+
+        public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            // Add some customers
+            this.Customers.Add(new Customer() { Name = "NAME1" });
+            this.Customers.Add(new Customer() { Name = "NAME2" });
+            this.Customers.Add(new Customer() { Name = "NAME3" });
         }
     }
 }

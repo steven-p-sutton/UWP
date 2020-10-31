@@ -44,10 +44,17 @@
                 <Button Content="Save" Margin="24" />
                 <Button Content="Cancel" Margin="24" />
             </StackPanel>
-            <ListView ItemsSource=""
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-            </ListView>
+            <StackPanel x:Name ="ListView" Orientation="Horizontal" RelativePanel.Below="Save">
+                <ListView ItemsSource="{x:Bind Customers}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Customer">
+                            <TextBlock Text="{x:Bind Name}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
         </RelativePanel>
     </Grid>
 </Page>
