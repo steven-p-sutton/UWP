@@ -20,8 +20,11 @@
                 https://docs.microsoft.com/en-us/windows/uwp/get-started/construct-form-learning-track
     
                 Format controls in your layout
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/construct-form-learning-track#format-controls-in-your-layout
                 Make your layout responsive
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/construct-form-learning-track#make-your-layout-responsive
                 Add accessibility support
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/construct-form-learning-track#add-accessibility-support
     
                 Layout Panels
                     https://docs.microsoft.com/en-us/windows/uwp/design/layout/layout-panels
@@ -32,15 +35,22 @@
                 https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track
     
                 Create a data source
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track#create-a-data-source
                 Create a list
-                    
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track#create-a-list
                 Bind data to your list
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track#bind-data-to-your-list
                 Edit your Customers through the UI
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track#edit-your-customers-through-the-ui
     
                 x:Bind / x.Binding
-                    https://docs.microsoft.com/en-us/windows/uwp/data-binding/data-binding-in-depth#xbind-and-binding-feature-comparison
+                    https://docs.microsoft.com/en-us/windows/uwp/data-binding/data-binding-in-depth
+                INotifyPropertyChanged Interface
+                    https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=netcore-3.1
                 ListView
                     https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/listview-and-gridview
+                Master/details pattern
+                    https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/master-details
     
             Save and load settings
     

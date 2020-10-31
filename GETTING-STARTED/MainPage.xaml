@@ -50,7 +50,7 @@
                     VerticalAlignment="Center">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:Customer">
-                            <TextBlock Text="{x:Bind Name}"/>
+                            <TextBox Text="{x:Bind Name, Mode = TwoWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
