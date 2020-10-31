@@ -7,6 +7,10 @@
 </Application>
     
 <!--
+    XAML Controls Gallery (install to try out controls described)
+        https://www.microsoft.com/en-us/p/xaml-controls-gallery/9msvh128x2zt?activetab=pivot:overviewtab
+        https://github.com/Microsoft/Xaml-Controls-Gallery
+    
     Start coding
         https://docs.microsoft.com/en-us/windows/uwp/get-started/create-uwp-apps
     
@@ -18,9 +22,12 @@
                 Layout Panels
                     https://docs.microsoft.com/en-us/windows/uwp/design/layout/layout-panels
     
-                XAML Controls Gallery (install to try out controls described)
-                    https://www.microsoft.com/en-us/p/xaml-controls-gallery/9msvh128x2zt?activetab=pivot:overviewtab
-        	        https://github.com/Microsoft/Xaml-Controls-Gallery
+                Make your layout responsive
+                    Responsive layouts with XAML
+                    https://docs.microsoft.com/en-us/windows/uwp/design/layout/layouts-with-xaml
+    
+            Display customers in a list
+                https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track
     
     
  -->
