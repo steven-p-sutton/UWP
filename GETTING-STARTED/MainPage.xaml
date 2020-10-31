@@ -44,6 +44,10 @@
                 <Button Content="Save" Margin="24" />
                 <Button Content="Cancel" Margin="24" />
             </StackPanel>
+            <ListView ItemsSource=""
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            </ListView>
         </RelativePanel>
     </Grid>
 </Page>

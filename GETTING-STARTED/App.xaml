@@ -19,15 +19,31 @@
             Create and customize a form
                 https://docs.microsoft.com/en-us/windows/uwp/get-started/construct-form-learning-track
     
+                Format controls in your layout
+                Make your layout responsive
+                Add accessibility support
+    
                 Layout Panels
                     https://docs.microsoft.com/en-us/windows/uwp/design/layout/layout-panels
-    
-                Make your layout responsive
-                    Responsive layouts with XAML
+                Responsive layouts with XAML
                     https://docs.microsoft.com/en-us/windows/uwp/design/layout/layouts-with-xaml
-    
+   
             Display customers in a list
                 https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track
     
+                Create a data source
+                Create a list
+                    
+                Bind data to your list
+                Edit your Customers through the UI
     
+                x:Bind / x.Binding
+                    https://docs.microsoft.com/en-us/windows/uwp/data-binding/data-binding-in-depth#xbind-and-binding-feature-comparison
+                ListView
+                    https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/listview-and-gridview
+    
+            Save and load settings
+    
+            Work with files
+     
  -->
