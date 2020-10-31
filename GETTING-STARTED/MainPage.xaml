@@ -23,7 +23,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <RelativePanel>
+        <RelativePanel x:Name="Top">
             <StackPanel x:Name="Customer" Margin="20">
                 <TextBox x:Name="CustomerName" Header= "Customer Name" Margin="0,24,0,0" HorizontalAlignment="Left" />
                 <TextBox x:Name="Address" Header="Address" PlaceholderText="Address" Margin="0,24,0,0" HorizontalAlignment="Left" />
@@ -44,6 +44,7 @@
                 <Button Content="Save" Margin="24" />
                 <Button Content="Cancel" Margin="24" />
             </StackPanel>
+            <!-- FIXED PAGE CONTENT -->
             <StackPanel x:Name ="ListView" Orientation="Horizontal" RelativePanel.Below="Save">
                 <ListView ItemsSource="{x:Bind Customers}"
                     HorizontalAlignment="Center"
