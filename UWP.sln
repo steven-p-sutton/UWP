@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlControlsGallery", "..\XMAL-CONTROL-GALLERY\XmalControlsGallery\XamlControlsGallery.csproj", "{3F68773A-31A5-59FE-926C-0569E415C9D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -124,6 +126,26 @@ Global
 		{D34183ED-03A6-4A33-8906-4F584E250CA5}.Release|x86.ActiveCfg = Release|x86
 		{D34183ED-03A6-4A33-8906-4F584E250CA5}.Release|x86.Build.0 = Release|x86
 		{D34183ED-03A6-4A33-8906-4F584E250CA5}.Release|x86.Deploy.0 = Release|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|ARM.Build.0 = Debug|ARM
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|ARM.Deploy.0 = Debug|ARM
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|ARM64.ActiveCfg = Debug|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|x64.ActiveCfg = Debug|x64
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|x64.Build.0 = Debug|x64
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|x64.Deploy.0 = Debug|x64
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|x86.ActiveCfg = Debug|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|x86.Build.0 = Debug|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Debug|x86.Deploy.0 = Debug|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|ARM.ActiveCfg = Release|ARM
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|ARM.Build.0 = Release|ARM
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|ARM.Deploy.0 = Release|ARM
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|ARM64.ActiveCfg = Release|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|x64.ActiveCfg = Release|x64
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|x64.Build.0 = Release|x64
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|x64.Deploy.0 = Release|x64
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|x86.ActiveCfg = Release|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|x86.Build.0 = Release|x86
+		{3F68773A-31A5-59FE-926C-0569E415C9D9}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

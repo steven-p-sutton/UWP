@@ -8,7 +8,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <RelativePanel>
+        <StackPanel x:Name="Customer" Margin="20">
+            <!--Content-->
+        </StackPanel>
+        <StackPanel x:Name="Associate" Margin="20" RelativePanel.RightOf="Customer">
+            <!--Content-->
+        </StackPanel>
+        <StackPanel x:Name="Save" Orientation="Horizontal" RelativePanel.Below="Customer">
+            <!--Save and Cancel buttons-->
+        </StackPanel>
+    </RelativePanel>
 </Page>
