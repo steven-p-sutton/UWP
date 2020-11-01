@@ -58,7 +58,18 @@
                     https://docs.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-anchor-and-dock-child-controls-in-a-flowlayoutpanel-control?view=netframeworkdesktop-4.8
     
             Save and load settings
+                https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track
+    
+                Save app settings
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track#save-app-settings
+    
+                Load app settings
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track#load-app-settings
     
             Work with files
+    
+            Documents & Examples
+                https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ApplicationData
+    
      
  -->
