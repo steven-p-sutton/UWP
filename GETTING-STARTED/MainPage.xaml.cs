@@ -42,13 +42,14 @@ namespace GETTING_STARTED
             // DYNAMIC PAGE CONTENT 
             // https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/listview-and-gridview
 
-            // Create a new ListView (or GridView) for the UI, add content by setting ItemsSource
-            ListView ContactsLV = new ListView();
+            Customers.Add(new Customer() { Name = "NAME1" });
+            Customers.Add(new Customer() { Name = "NAME2" });
+            Customers.Add(new Customer() { Name = "NAME3" });
 
+            // Create a new ListView (or GridView) for the UI, add content by setting ItemsSource
+
+            ListView ContactsLV = new ListView();
             ContactsLV = new ListView();
-            ContactsLV.Items.Add(new Customer() { Name = "NAME1" });
-            ContactsLV.Items.Add(new Customer() { Name = "NAME2" });
-            ContactsLV.Items.Add(new Customer() { Name = "NAME3" });
 
             ContactsLV.ItemsSource = Customers;
             ContactsLV.VerticalAlignment = VerticalAlignment.Center;
