@@ -24,7 +24,19 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <RelativePanel x:Name="Top">
-            <StackPanel x:Name="Customer" Margin="20">
+            <!-- FIXED PAGE CONTENT -->
+            <StackPanel x:Name ="NameStack">
+                <!-- ListView ItemsSource="{x:Bind Customers}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Customer">
+                            <TextBox Text="{x:Bind Name, Mode = TwoWay}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </-->
+            </StackPanel>
+            <StackPanel x:Name="Customer" Margin="20" RelativePanel.Below="NameStack">
                 <TextBox x:Name="CustomerName" Header= "Customer Name" Margin="0,24,0,0" HorizontalAlignment="Left" />
                 <TextBox x:Name="Address" Header="Address" PlaceholderText="Address" Margin="0,24,0,0" HorizontalAlignment="Left" />
                 <TextBox x:Name="Address2" Margin="0,24,0,0" PlaceholderText="Address 2" HorizontalAlignment="Left" />
@@ -44,18 +56,7 @@
                 <Button Content="Save" Margin="24" />
                 <Button Content="Cancel" Margin="24" />
             </StackPanel>
-            <!-- FIXED PAGE CONTENT -->
-            <StackPanel x:Name ="ListView" Orientation="Horizontal" RelativePanel.Below="Save">
-                <ListView ItemsSource="{x:Bind Customers}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="local:Customer">
-                            <TextBox Text="{x:Bind Name, Mode = TwoWay}"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
+
         </RelativePanel>
     </Grid>
 </Page>

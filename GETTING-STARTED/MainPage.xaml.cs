@@ -35,19 +35,33 @@ namespace GETTING_STARTED
             // https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track
 
             // Add some customers
-            this.Customers.Add(new Customer() { Name = "NAME1" });
-            this.Customers.Add(new Customer() { Name = "NAME2" });
-            this.Customers.Add(new Customer() { Name = "NAME3" });
+            // this.Customers.Add(new Customer() { Name = "NAME1" });
+            // this.Customers.Add(new Customer() { Name = "NAME2" });
+            // this.Customers.Add(new Customer() { Name = "NAME3" });
 
             // DYNAMIC PAGE CONTENT 
             // https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/listview-and-gridview
 
             // Create a new ListView (or GridView) for the UI, add content by setting ItemsSource
-            // ListView ContactsLV = new ListView();
-            // ContactsLV.ItemsSource = Customers;
+            ListView ContactsLV = new ListView();
+
+            ContactsLV = new ListView();
+            ContactsLV.Items.Add(new Customer() { Name = "NAME1" });
+            ContactsLV.Items.Add(new Customer() { Name = "NAME2" });
+            ContactsLV.Items.Add(new Customer() { Name = "NAME3" });
+
+            ContactsLV.ItemsSource = Customers;
+            ContactsLV.VerticalAlignment = VerticalAlignment.Center;
+            ContactsLV.HorizontalAlignment = HorizontalAlignment.Center;
 
             // Add the ListView to a parent container in the visual tree (that you created in the corresponding XAML file)
-            //Top.Children.Add(ContactsLV);
+
+            NameStack.Children.Add(ContactsLV);
+
+            //for (int i = 0; i < NameStack.Children.Count; i++)
+            //{
+            //    NameStack.Children[i].AccessKey.ToString();
+            //}
         }
     }
 }
