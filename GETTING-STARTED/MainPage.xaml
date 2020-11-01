@@ -26,7 +26,7 @@
         <RelativePanel x:Name="Top">
             <!-- FIXED PAGE CONTENT -->
             <StackPanel x:Name ="NameStack">
-                <!-- ListView ItemsSource="{x:Bind Customers}"
+                <ListView ItemsSource="{x:Bind Customers}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
                     <ListView.ItemTemplate>
@@ -34,7 +34,7 @@
                             <TextBox Text="{x:Bind Name, Mode = TwoWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </-->
+                </ListView>
             </StackPanel>
             <StackPanel x:Name="Customer" Margin="20" RelativePanel.Below="NameStack">
                 <TextBox x:Name="CustomerName" Header= "Customer Name" Margin="0,24,0,0" HorizontalAlignment="Left" />
