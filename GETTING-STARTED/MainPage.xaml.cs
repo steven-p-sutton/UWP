@@ -42,22 +42,24 @@ namespace GETTING_STARTED
             // DYNAMIC PAGE CONTENT 
             // https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/listview-and-gridview
 
-            Customers.Add(new Customer() { Name = "NAME1" });
-            Customers.Add(new Customer() { Name = "NAME2" });
-            Customers.Add(new Customer() { Name = "NAME3" });
+            // Add some customers
+            this.Customers.Add(new Customer() { Name = "NAME1" });
+            this.Customers.Add(new Customer() { Name = "NAME2" });
+            this.Customers.Add(new Customer() { Name = "NAME3" });
 
-            // Create a new ListView (or GridView) for the UI, add content by setting ItemsSource
-
+            // Create a new ListView (or GridView) for the UI
             ListView ContactsLV = new ListView();
             ContactsLV = new ListView();
 
+            // Add content by setting ItemsSource
             ContactsLV.ItemsSource = Customers;
-            ContactsLV.VerticalAlignment = VerticalAlignment.Center;
-            ContactsLV.HorizontalAlignment = HorizontalAlignment.Center;
 
             // Add the ListView to a parent container in the visual tree (that you created in the corresponding XAML file)
-
             NameStack.Children.Add(ContactsLV);
+
+            // Style ListView
+            ContactsLV.VerticalAlignment = VerticalAlignment.Center;
+            ContactsLV.HorizontalAlignment = HorizontalAlignment.Center;
 
             //for (int i = 0; i < NameStack.Children.Count; i++)
             //{
