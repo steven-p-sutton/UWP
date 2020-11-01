@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="DESIGN_AND_UI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DESIGN_AND_UI">
+
+</Application>
+    
+    <!--
+        XAML Controls Gallery (install to try out controls described)
+        https://www.microsoft.com/en-us/p/xaml-controls-gallery/9msvh128x2zt?activetab=pivot:overviewtab
+        https://github.com/Microsoft/Xaml-Controls-Gallery
+    
+        DESIGN-AND-UI
+            https://docs.microsoft.com/en-us/windows/uwp/design/
+   
+    -->
