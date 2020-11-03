@@ -29,10 +29,11 @@
                 Add accessibility support
                     https://docs.microsoft.com/en-us/windows/uwp/get-started/construct-form-learning-track#add-accessibility-support
     
-                Layout Panels
-                    https://docs.microsoft.com/en-us/windows/uwp/design/layout/layout-panels
-                Responsive layouts with XAML
-                    https://docs.microsoft.com/en-us/windows/uwp/design/layout/layouts-with-xaml
+                References
+                    Layout Panels
+                        https://docs.microsoft.com/en-us/windows/uwp/design/layout/layout-panels
+                    Responsive layouts with XAML
+                        https://docs.microsoft.com/en-us/windows/uwp/design/layout/layouts-with-xaml
    
             Display customers in a list
                 https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track
@@ -46,26 +47,36 @@
                 Edit your Customers through the UI
                     https://docs.microsoft.com/en-us/windows/uwp/get-started/display-customers-in-list-learning-track#edit-your-customers-through-the-ui
     
-                x:Bind / x.Binding
-                    https://docs.microsoft.com/en-us/windows/uwp/data-binding/data-binding-in-depth
-                INotifyPropertyChanged Interface
-                    https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=netcore-3.1
-                ListView
-                    https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/listview-and-gridview
-                Master/details pattern
-                    https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/master-details
-                How To anchor and dock child controls in a FlowLayoutPanel control
-                    https://docs.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-anchor-and-dock-child-controls-in-a-flowlayoutpanel-control?view=netframeworkdesktop-4.8
+                References
+                    x:Bind / x.Binding
+                        https://docs.microsoft.com/en-us/windows/uwp/data-binding/data-binding-in-depth
+                    INotifyPropertyChanged Interface
+                        https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=netcore-3.1
+                    ListView
+                        https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/listview-and-gridview
+                    Master/details pattern
+                        https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/master-details
+                    How To anchor and dock child controls in a FlowLayoutPanel control
+                        https://docs.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-anchor-and-dock-child-controls-in-a-flowlayoutpanel-control?view=netframeworkdesktop-4.8
     
             Save and load settings
                 https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track
     
                 Save app settings
                     https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track#save-app-settings
-    
                 Load app settings
                     https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track#load-app-settings
     
+                References
+                    ApplicationData Class
+                        https://docs.microsoft.com/en-us/uwp/api/Windows.Storage.ApplicationData?view=winrt-19041#Windows_Storage_ApplicationData_LocalSettings
+                    ApplicationData.RoamingSettings Property
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.applicationdata.roamingsettings?view=winrt-19041#Windows_Storage_ApplicationData_RoamingSettings
+                    ApplicationDataContainer Class
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.applicationdatacontainer?view=winrt-19041
+                    ApplicationDataCompositeValue Class
+                        https://docs.microsoft.com/en-us/uwp/api/Windows.Storage.ApplicationDataCompositeValue?view=winrt-19041
+  
             Work with files
     
             Documents & Examples
