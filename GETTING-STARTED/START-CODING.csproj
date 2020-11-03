@@ -155,6 +155,12 @@
       <Version>6.2.10</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WINDOWS-TASK-SNIPPETS\LIBRARY\LIBRARY.csproj">
+      <Project>{23b86352-6535-4a07-a501-7e01400e7f64}</Project>
+      <Name>LIBRARY</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

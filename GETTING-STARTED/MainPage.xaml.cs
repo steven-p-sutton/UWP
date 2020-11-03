@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WindowsTaskSnippets.AppSettings; // LIBRARY
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,10 +29,7 @@ namespace GETTING_STARTED
 
         public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
 
-        // XMAL binds to these
-        string _AssociateName = string.Empty;
-        string _TargetInstallDate = string.Empty;
-        string _InstallTime = string.Empty;
+        private AppSettings appSettings = new AppSettings();
 
         public MainPage()
         {
@@ -73,30 +71,14 @@ namespace GETTING_STARTED
             ////}
 
             // Read settings 
-            GetSettings();
+            appSettings.GetSettings();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            SaveSettings();
+            appSettings.SaveSettings();
         }
-
-        private void SaveSettings()
-        {
-            // Save a setting locally on the device
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            localSettings.Values["AssociateName"] = _AssociateName;
-        }
-        private void GetSettings()
-        {
-            // load a setting that is local to the device
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            _AssociateName = localSettings.Values["AssociateName"] as string;
-            
-            //_AssociateName = "AssociateName";
-            _TargetInstallDate = "TargetInstallDate";
-            _InstallTime = "InstallTime";
-        }
-
     }
+
+
 }
