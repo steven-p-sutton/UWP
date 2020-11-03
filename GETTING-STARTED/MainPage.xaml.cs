@@ -29,7 +29,7 @@ namespace GETTING_STARTED
 
         public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
 
-        private AppSettings appSettings = new AppSettings();
+        private AppSettings _AppSettings = new AppSettings();
 
         public MainPage()
         {
@@ -71,12 +71,12 @@ namespace GETTING_STARTED
             ////}
 
             // Read settings 
-            appSettings.GetSettings();
+            _AppSettings.GetSettings();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            appSettings.SaveSettings();
+            _AppSettings.SaveSettings();
         }
     }
 
