@@ -76,6 +76,9 @@
                         https://docs.microsoft.com/en-us/uwp/api/windows.storage.applicationdatacontainer?view=winrt-19041
                     ApplicationDataCompositeValue Class
                         https://docs.microsoft.com/en-us/uwp/api/Windows.Storage.ApplicationDataCompositeValue?view=winrt-19041
+    
+                    DatePicker & TimePicker Binding
+                        http://www.teixeira-soft.com/bluescreen/2016/02/26/binding-the-xaml-controls-datepicker-and-timepicker-to-a-variable-of-type-datetime/
   
             Work with files
     

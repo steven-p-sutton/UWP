@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WindowsTaskSnippets.AppSettings; // LIBRARY
@@ -20,7 +21,8 @@ namespace GETTING_STARTED
 
         // XMAL binds to these
         string _AssociateName = string.Empty;
-        string _TargetInstallDate = string.Empty;
+        //string _TargetInstallDate = string.Empty;
+        DateTimeOffset _TargetInstallDate = DateTime.Now;
         string _InstallTime = string.Empty;
 
         public MainPage()
@@ -64,14 +66,15 @@ namespace GETTING_STARTED
 
             // Read settings 
             _AssociateName = _AppSettings.GetSetting("AssociateName");
+            _TargetInstallDate = DateTimeOffset.Parse(_AppSettings.GetSetting("TargetInstallDate"));
 
-            _TargetInstallDate = "TargetInstallDate";
             _InstallTime = "InstallTime";
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             _AppSettings.SaveSetting("AssociateName", _AssociateName);
+            _AppSettings.SaveSetting("TargetInstallDate", _TargetInstallDate.ToString());
         }
     }
 
