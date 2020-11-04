@@ -48,7 +48,7 @@
                 </RelativePanel>
             </StackPanel>
             <StackPanel x:Name="Associate" Margin="20" RelativePanel.Below="Customer">
-                <TextBox x:Name="AssociateName" Text="{x:Bind _AppSettings.AssociateName, Mode=TwoWay}" Header= "Associate" Margin="0,24,0,0" HorizontalAlignment="Left" />
+                <TextBox x:Name="AssociateName" Text="{x:Bind _AppSettings.Setting, Mode=TwoWay}" Header= "Associate" Margin="0,24,0,0" HorizontalAlignment="Left" />
                 <DatePicker x:Name="TargetInstallDate" Header="Target install Date" HorizontalAlignment="Left" Margin="0,24,0,0"></DatePicker>
                 <TimePicker x:Name="InstallTime" Header="Install Time" HorizontalAlignment="Left" Margin="0,24,0,0"></TimePicker>
             </StackPanel>

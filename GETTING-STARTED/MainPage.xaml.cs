@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Storage;
+﻿using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using WindowsTaskSnippets.AppSettings; // LIBRARY
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -30,6 +17,10 @@ namespace GETTING_STARTED
         public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
 
         private AppSettings _AppSettings = new AppSettings();
+        // XMAL binds to these
+        string _AssociateName = string.Empty;
+        string _TargetInstallDate = string.Empty;
+        string _InstallTime = string.Empty;
 
         public MainPage()
         {
@@ -71,7 +62,9 @@ namespace GETTING_STARTED
             ////}
 
             // Read settings 
-            _AppSettings.GetSettings();
+            _AssociateName = _AppSettings.Setting;
+            _TargetInstallDate = "TargetInstallDate";
+            _InstallTime = "InstallTime";
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
