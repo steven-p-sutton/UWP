@@ -16,7 +16,8 @@ namespace GETTING_STARTED
 
         public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
 
-        private AppSettings _AppSettings = new AppSettings();
+        private AppSettings _AppSettings = new AppSettings(AppSettings.Type.Roaming);
+
         // XMAL binds to these
         string _AssociateName = string.Empty;
         string _TargetInstallDate = string.Empty;
@@ -62,14 +63,15 @@ namespace GETTING_STARTED
             ////}
 
             // Read settings 
-            _AssociateName = _AppSettings.Setting;
+            _AssociateName = _AppSettings.GetSetting("AssociateName");
+
             _TargetInstallDate = "TargetInstallDate";
             _InstallTime = "InstallTime";
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            _AppSettings.SaveSettings();
+            _AppSettings.SaveSetting("AssociateName", _AssociateName);
         }
     }
 
