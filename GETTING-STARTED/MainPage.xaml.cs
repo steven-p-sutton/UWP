@@ -23,7 +23,8 @@ namespace GETTING_STARTED
         string _AssociateName = string.Empty;
         //string _TargetInstallDate = string.Empty;
         DateTimeOffset _TargetInstallDate = DateTime.Now;
-        string _InstallTime = string.Empty;
+        //string _InstallTime = string.Empty;
+        TimeSpan _InstallTime = TimeSpan.Zero;
 
         public MainPage()
         {
@@ -64,17 +65,42 @@ namespace GETTING_STARTED
             ////    NameStack.Children[i].AccessKey.ToString();
             ////}
 
-            // Read settings 
-            _AssociateName = _AppSettings.GetSetting("AssociateName");
-            _TargetInstallDate = DateTimeOffset.Parse(_AppSettings.GetSetting("TargetInstallDate"));
+            try
+            {
+                // Read settings 
+                _AssociateName = _AppSettings.GetSetting("AssociateName");
+            }
+            catch
+            {
+                _AssociateName = string.Empty;
+            }
 
-            _InstallTime = "InstallTime";
+            try
+            {
+                _TargetInstallDate = DateTimeOffset.Parse(_AppSettings.GetSetting("TargetInstallDate"));
+            }
+            catch
+            {
+                _TargetInstallDate = DateTime.Today;
+            }
+
+            try
+            {
+                //_InstallTime = "InstallTime";
+                _InstallTime = TimeSpan.Parse(_AppSettings.GetSetting("InstallTime"));
+            }
+            catch
+            {
+                _InstallTime = TimeSpan.Zero;
+            }
+
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             _AppSettings.SaveSetting("AssociateName", _AssociateName);
             _AppSettings.SaveSetting("TargetInstallDate", _TargetInstallDate.ToString());
+            _AppSettings.SaveSetting("InstallTime", _InstallTime.ToString());
         }
     }
 
