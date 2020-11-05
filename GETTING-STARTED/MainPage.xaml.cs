@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using WindowsTaskSnippets.AppSettings; // LIBRARY
+using WindowsTaskSnippets.AppSettings;  // LIBRARY
+using WindowsTaskSnippets.AppFiles;     // LIBRARY
+using System.Globalization;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -27,7 +30,7 @@ namespace GETTING_STARTED
         // Homegrown class in LIBRARY to encapsulate the .Core File API 
         // https://docs.microsoft.com/en-us/windows/uwp/get-started/fileio-learning-track
 
-        private AppFiles _AppFiles = new AppFiles();
+        private AppFiles _AppFiles = new AppFiles("TryFileIO.txt");
 
         // XMAL binds to these
         string _AssociateName = string.Empty;
@@ -110,39 +113,9 @@ namespace GETTING_STARTED
             _AppSettings.SaveSetting("TargetInstallDate", _TargetInstallDate.ToString());
             _AppSettings.SaveSetting("InstallTime", _InstallTime.ToString());
 
-            _AppFiles.WriteFileAsync();
+            _AppFiles.WriteFileAsync("Hello World");
             _AppFiles.ReadFileAsync();
-        }
-    }
-
-    public class AppFiles
-    {
-        public AppFiles()
-        {
-        }
-        public async System.Threading.Tasks.Task WriteFileAsync()
-        {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync
-            (
-                "test.txt",
-                Windows.Storage.CreationCollisionOption.OpenIfExists
-            );
-
-            await Windows.Storage.FileIO.WriteTextAsync(file, "Example of writing a string\r\n");
-
-            // Append a list of strings, one per line, to the file
-            var listOfStrings = new List<string> { "line1", "line2", "line3" };
-            await Windows.Storage.FileIO.AppendLinesAsync(file, listOfStrings); // each entry in the list is written to the file on its own line.
-        }
-        public async System.Threading.Tasks.Task ReadFileAsync()
-        {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile file = await storageFolder.GetFileAsync("test.txt");
-
-            string text = await Windows.Storage.FileIO.ReadTextAsync(file);
-            // You can also read each line of the file into individual strings in a collection with 
-            // IList<string> contents = await Windows.Storage.FileIO.ReadLinesAsync(sampleFile);
+            string s = _AppFiles.s;
         }
     }
 }
