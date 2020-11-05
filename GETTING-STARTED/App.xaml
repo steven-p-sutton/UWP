@@ -91,23 +91,22 @@
                     https://docs.microsoft.com/en-us/windows/uwp/get-started/fileio-learning-track#access-the-file-system
                 
                 References
-                    StorageFile Class
-                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefile?view=winrt-19041
-                    Tutorial
-                        https://docs.microsoft.com/en-us/windows/uwp/files/quickstart-reading-and-writing-files
-                    GIt Example
-                        https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess
                     File Path 
                         https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefile.getfilefrompathasync?view=winrt-19041
                     File IO
                         https://docs.microsoft.com/en-us/uwp/api/windows.storage.fileio?view=winrt-19041
-                    StorageFolder
-                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefolder?view=winrt-19041
+                    FilePicker 
+                        https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FilePicker
+                    GIt Example
+                        https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess
                     KnownFolders
                         https://docs.microsoft.com/en-us/uwp/api/windows.storage.knownfolders?view=winrt-19041
-    
-                        
-    
+                    StorageFile Class
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefile?view=winrt-19041
+                    StorageFolder
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefolder?view=winrt-19041
+                    Tutorial
+                        https://docs.microsoft.com/en-us/windows/uwp/files/quickstart-reading-and-writing-files
     
             Documents & Examples
                 https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ApplicationData
