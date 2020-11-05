@@ -59,7 +59,6 @@
                     How To anchor and dock child controls in a FlowLayoutPanel control
                         https://docs.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-anchor-and-dock-child-controls-in-a-flowlayoutpanel-control?view=netframeworkdesktop-4.8
     
-    
             Save and load settings
                 https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track
     
@@ -82,6 +81,33 @@
                         http://www.teixeira-soft.com/bluescreen/2016/02/26/binding-the-xaml-controls-datepicker-and-timepicker-to-a-variable-of-type-datetime/
   
             Work with files
+                https://docs.microsoft.com/en-us/windows/uwp/get-started/fileio-learning-track
+    
+                Write text to a file
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/fileio-learning-track#write-text-to-a-file
+                Read text from a file
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/fileio-learning-track#read-text-from-a-file
+                Access the file system
+                    https://docs.microsoft.com/en-us/windows/uwp/get-started/fileio-learning-track#access-the-file-system
+                
+                References
+                    StorageFile Class
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefile?view=winrt-19041
+                    Tutorial
+                        https://docs.microsoft.com/en-us/windows/uwp/files/quickstart-reading-and-writing-files
+                    GIt Example
+                        https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess
+                    File Path 
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefile.getfilefrompathasync?view=winrt-19041
+                    File IO
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.fileio?view=winrt-19041
+                    StorageFolder
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.storagefolder?view=winrt-19041
+                    KnownFolders
+                        https://docs.microsoft.com/en-us/uwp/api/windows.storage.knownfolders?view=winrt-19041
+    
+                        
+    
     
             Documents & Examples
                 https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ApplicationData

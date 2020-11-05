@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WindowsTaskSnippets.AppSettings; // LIBRARY
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -17,13 +19,19 @@ namespace GETTING_STARTED
 
         public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
 
+        // Homegrown class in LIBRARY to encapsulate the .Core Settings API
+        // https://docs.microsoft.com/en-us/windows/uwp/get-started/settings-learning-track
+
         private AppSettings _AppSettings = new AppSettings(AppSettings.Type.Roaming);
+
+        // Homegrown class in LIBRARY to encapsulate the .Core File API 
+        // https://docs.microsoft.com/en-us/windows/uwp/get-started/fileio-learning-track
+
+        private AppFiles _AppFiles = new AppFiles();
 
         // XMAL binds to these
         string _AssociateName = string.Empty;
-        //string _TargetInstallDate = string.Empty;
         DateTimeOffset _TargetInstallDate = DateTime.Now;
-        //string _InstallTime = string.Empty;
         TimeSpan _InstallTime = TimeSpan.Zero;
 
         public MainPage()
@@ -96,13 +104,38 @@ namespace GETTING_STARTED
 
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private async System.Threading.Tasks.Task Save_ClickAsync(object sender, RoutedEventArgs e)
         {
             _AppSettings.SaveSetting("AssociateName", _AssociateName);
             _AppSettings.SaveSetting("TargetInstallDate", _TargetInstallDate.ToString());
             _AppSettings.SaveSetting("InstallTime", _InstallTime.ToString());
+
+            await _AppFiles.WriteToFileAsync();
         }
     }
 
+    public class AppFiles
+    {
+        public AppFiles()
+        {
+        }
+        public async System.Threading.Tasks.Task WriteToFileAsync()
+        {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync
+            (
+                "test.txt",
+                Windows.Storage.CreationCollisionOption.OpenIfExists
+            );
 
+            await Windows.Storage.FileIO.WriteTextAsync(file, "Example of writing a string\r\n");
+
+            // Append a list of strings, one per line, to the file
+            var listOfStrings = new List<string> { "line1", "line2", "line3" };
+            await Windows.Storage.FileIO.AppendLinesAsync(file, listOfStrings); // each entry in the list is written to the file on its own line.
+        }
+        public void ReadFromFile()
+        {
+        }
+    }
 }
