@@ -104,13 +104,14 @@ namespace GETTING_STARTED
 
         }
 
-        private async System.Threading.Tasks.Task Save_ClickAsync(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             _AppSettings.SaveSetting("AssociateName", _AssociateName);
             _AppSettings.SaveSetting("TargetInstallDate", _TargetInstallDate.ToString());
             _AppSettings.SaveSetting("InstallTime", _InstallTime.ToString());
 
-            await _AppFiles.WriteToFileAsync();
+            _AppFiles.WriteFileAsync();
+            _AppFiles.ReadFileAsync();
         }
     }
 
@@ -119,7 +120,7 @@ namespace GETTING_STARTED
         public AppFiles()
         {
         }
-        public async System.Threading.Tasks.Task WriteToFileAsync()
+        public async System.Threading.Tasks.Task WriteFileAsync()
         {
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync
@@ -134,8 +135,14 @@ namespace GETTING_STARTED
             var listOfStrings = new List<string> { "line1", "line2", "line3" };
             await Windows.Storage.FileIO.AppendLinesAsync(file, listOfStrings); // each entry in the list is written to the file on its own line.
         }
-        public void ReadFromFile()
+        public async System.Threading.Tasks.Task ReadFileAsync()
         {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile file = await storageFolder.GetFileAsync("test.txt");
+
+            string text = await Windows.Storage.FileIO.ReadTextAsync(file);
+            // You can also read each line of the file into individual strings in a collection with 
+            // IList<string> contents = await Windows.Storage.FileIO.ReadLinesAsync(sampleFile);
         }
     }
 }
