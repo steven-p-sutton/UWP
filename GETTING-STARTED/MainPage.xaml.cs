@@ -114,8 +114,9 @@ namespace GETTING_STARTED
             _AppSettings.SaveSetting("InstallTime", _InstallTime.ToString());
 
             _AppFiles.WriteFileAsync("Hello World");
+            // Might neet to pause here for async functions to complete
             _AppFiles.ReadFileAsync();
-            string s = _AppFiles.s;
+            string s = _AppFiles.ToString();
         }
     }
 }
