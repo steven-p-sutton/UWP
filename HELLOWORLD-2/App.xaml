@@ -1,0 +1,36 @@
+﻿<!-- 
+    Based on tutorial
+    https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal
+    
+    Create a "Hello, World!" app (XAML)
+    
+        Step 1: Create a new project in Visual Studio.
+            https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal#step-1-create-a-new-project-in-visual-studio
+    
+        Step 2: Adding a button
+            https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal#step-2-adding-a-button
+    
+        Step 3: Start the app
+            https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal#step-3-start-the-app
+    
+        Step 4: Event handlers
+            https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-xaml-universal#step-4-event-handlers
+    
+        Publish Windows apps and games
+            https://docs.microsoft.com/en-us/windows/uwp/publish/
+        Develop UWP apps
+            https://docs.microsoft.com/en-us/windows/uwp/develop/
+        Code samples
+            https://developer.microsoft.com/en-us/windows/samples/
+        What's a Universal Windows Platform (UWP) app?
+            https://docs.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide
+        Create a developer account
+            https://docs.microsoft.com/en-us/windows/apps/get-started/sign-up
+    -->   
+    <Application
+    x:Class="HELLOWORLD_2.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HELLOWORLD_2">
+
+</Application>
