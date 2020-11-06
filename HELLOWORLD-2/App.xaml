@@ -26,6 +26,14 @@
             https://docs.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide
         Create a developer account
             https://docs.microsoft.com/en-us/windows/apps/get-started/sign-up
+        Visual Studio project and item templates for Windows apps
+            https://docs.microsoft.com/en-us/windows/apps/desktop/visual-studio-templates
+        Windows UI Library (WinUI)
+            https://docs.microsoft.com/en-us/windows/apps/winui/
+        The Fluent Design System for Windows app creators
+            https://docs.microsoft.com/en-us/windows/apps/fluent-design-system
+    
+    
     -->   
     <Application
     x:Class="HELLOWORLD_2.App"
