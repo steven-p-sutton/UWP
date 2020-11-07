@@ -13,5 +13,27 @@
     
         DESIGN-AND-UI
             https://docs.microsoft.com/en-us/windows/uwp/design/
-   
+    
+            Introduction to Windows app design
+                https://docs.microsoft.com/en-us/windows/uwp/design/basics/
+
+    
+            Navigation design basics
+                https://docs.microsoft.com/en-us/windows/uwp/design/basics/navigation-basics
+    
+            References
+                Downloads and tools for Windows 10
+                    https://developer.microsoft.com/en-us/windows/downloads/
+                Windows Template Studio (Visual Studio Extension)
+                    https://github.com/microsoft/WindowsTemplateStudio/blob/dev/docs/concepts.md
+                    https://github.com/microsoft/WindowsTemplateStudio/blob/dev/docs/getting-started-extension.md
+                    https://github.com/Microsoft/WindowsTemplateStudio
+                Windows Community Toolkit
+                    https://docs.microsoft.com/en-us/windows/communitytoolkit/
+                Microsoft Web Template Studio
+                    https://github.com/Microsoft/WebTemplateStudio/
+                Design toolkits for Windows apps
+                    https://docs.microsoft.com/en-us/windows/uwp/design/downloads/
+    
+    
     -->
