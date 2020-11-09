@@ -72,7 +72,6 @@ namespace WINDOWS_TEMPLATE_STUDIO.Services
         private async Task InitializeAsync()
         {
             await ThemeSelectorService.InitializeAsync().ConfigureAwait(false);
-            await WindowManagerService.Current.InitializeAsync();
         }
 
         private async Task HandleActivationAsync(object activationArgs)

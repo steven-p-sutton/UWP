@@ -27,10 +27,22 @@
                     https://github.com/microsoft/WindowsTemplateStudio/blob/dev/docs/concepts.md
                     https://github.com/microsoft/WindowsTemplateStudio/blob/dev/docs/getting-started-extension.md
                     https://github.com/Microsoft/WindowsTemplateStudio
+                    Using and extending your generated project
+                        https://github.com/microsoft/WindowsTemplateStudio/blob/dev/docs/UWP/getting-started-endusers.md
                 Windows Community Toolkit
                     https://docs.microsoft.com/en-us/windows/communitytoolkit/
                 Microsoft Web Template Studio
                     https://github.com/Microsoft/WebTemplateStudio/
+                Identity
+                    https://github.com/microsoft/WindowsTemplateStudio/blob/dev/docs/UWP/services/identity.md
+                Evolution of Microsoft identity platform
+                    https://docs.microsoft.com/en-us/azure/active-directory/azuread-dev/about-microsoft-identity-platform
                 Design toolkits for Windows apps
                     https://docs.microsoft.com/en-us/windows/uwp/design/downloads
+                Intro to secure Windows app development
+                    https://docs.microsoft.com/en-us/windows/uwp/security/intro-to-secure-windows-app-development
+                Create or update client IDs and secrets 
+                    https://docs.microsoft.com/en-us/office/dev/store/create-or-update-client-ids-and-secrets
+                    https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh465407(v=win.10)?redirectedfrom=MSDN
+                    https://stackoverflow.com/questions/39833404/where-i-can-obtain-client-secret-for-my-universal-app
     -->

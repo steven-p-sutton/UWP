@@ -5,43 +5,74 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    Style="{StaticResource PageStyle}"
+    xmlns:helpers="using:WINDOWS_TEMPLATE_STUDIO.Helpers"
+    xmlns:views="using:WINDOWS_TEMPLATE_STUDIO.Views"
     Loaded="OnLoaded"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d">
 
-    <SplitView
-        x:Name="splitView"
-        PanePlacement="Right"
-        OpenPaneLength="400">
-        <SplitView.Pane>
-            <Frame
-                x:Name="rightFrame"
-                BorderThickness="1,1,0,0"
-                BorderBrush="Gray"
-                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
-        </SplitView.Pane>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <winui:MenuBar VerticalAlignment="Top">
-                <!--
-                TODO WTS: You can edit the text for the menu in String/en-US/Resources.resw
-                -->
-                <winui:MenuBarItem x:Uid="ShellMenuBarItem_File">
-                    <MenuFlyoutItem x:Uid="ShellMenuItem_File_Settings" Click="ShellMenuItemClick_File_Settings" />
-                    <MenuFlyoutItem x:Uid="ShellMenuItem_File_Exit" Click="ShellMenuItemClick_File_Exit" />
-                </winui:MenuBarItem>
-                <winui:MenuBarItem x:Uid="ShellMenuBarItem_Views">
-                    <MenuFlyoutItem x:Uid="ShellMenuItem_Views_Main" Click="ShellMenuItemClick_Views_Main" />
-                    <MenuFlyoutItem x:Uid="ShellMenuItem_Views_TabView" Click="ShellMenuItemClick_Views_TabView" />
-                </winui:MenuBarItem>
-            </winui:MenuBar>
-            <Grid Grid.Row="1">
-                <Frame x:Name="shellFrame" />
-            </Grid>
-        </Grid>
-    </SplitView>
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter x:Name="ReverseBoolToVisibility" FalseValue="Visible" TrueValue="Collapsed" />
+        <converters:BoolNegationConverter x:Name="BoolNegationConverter" />
+    </Page.Resources>
 
+    <winui:NavigationView
+        x:Name="navigationView"
+        IsBackButtonVisible="Visible"
+        IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
+        SelectedItem="{x:Bind Selected, Mode=OneWay}"
+        ItemInvoked="OnItemInvoked"
+        IsSettingsVisible="True"
+        PaneDisplayMode="Top"
+        Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+        <winui:NavigationView.MenuItems>
+            <!--
+            TODO WTS: Change the symbols for each item as appropriate for your app
+            More on Segoe UI Symbol icons: https://docs.microsoft.com/windows/uwp/style/segoe-ui-symbol-font
+            Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/release/docs/UWP/projectTypes/navigationpane.md
+            Edit String/en-US/Resources.resw: Add a menu item title for each page
+            -->
+            <winui:NavigationViewItem x:Uid="Shell_Main" helpers:NavHelper.NavigateTo="views:MainPage" />
+            <winui:NavigationViewItem x:Uid="Shell_ImageGallery" helpers:NavHelper.NavigateTo="views:ImageGalleryPage" />
+        </winui:NavigationView.MenuItems>
+        <winui:NavigationView.PaneFooter>
+            <Grid>
+                <Button
+                    x:Uid="Shell_UserInfoButton"
+                    Width="48"
+                    Height="40"
+                    Click="OnUserProfile"
+                    IsEnabled="{x:Bind IsBusy, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
+                    Visibility="{x:Bind IsLoggedIn, Mode=OneWay}"
+                    Background="Transparent"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left">
+                    <Ellipse Width="24" Height="24">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{x:Bind User.Photo, Mode=OneWay}" Stretch="UniformToFill" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+                <Button
+                    x:Uid="Shell_LoginButton"
+                    Width="48"
+                    Height="40"
+                    Click="OnUserProfile"
+                    IsEnabled="{x:Bind IsBusy, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
+                    Visibility="{x:Bind IsLoggedIn, Mode=OneWay, Converter={StaticResource ReverseBoolToVisibility}}"
+                    Background="Transparent"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left">
+                    <Ellipse Width="24" Height="24">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/DefaultIcon.png" Stretch="UniformToFill" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+            </Grid>
+        </winui:NavigationView.PaneFooter>
+        <Grid>
+            <Frame x:Name="shellFrame" />
+        </Grid>
+    </winui:NavigationView>
 </Page>

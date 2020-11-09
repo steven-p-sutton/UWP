@@ -1,0 +1,22 @@
+﻿<!--
+        XAML Controls Gallery (install to try out controls described)
+        https://www.microsoft.com/en-us/p/xaml-controls-gallery/9msvh128x2zt?activetab=pivot:overviewtab
+        https://github.com/Microsoft/Xaml-Controls-Gallery
+    
+        MICROSOFT INDENTITY PLATFORM
+    
+            Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
+                https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp
+    
+                Setup You Project
+                    https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp#set-up-your-project
+
+-->
+    
+<Application
+    x:Class="IDENTITY.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IDENTITY">
+
+</Application>

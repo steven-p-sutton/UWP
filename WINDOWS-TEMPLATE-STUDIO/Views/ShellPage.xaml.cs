@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Navigation;
 
 using WINDOWS_TEMPLATE_STUDIO.Core.Helpers;
 using WINDOWS_TEMPLATE_STUDIO.Core.Services;
@@ -14,21 +17,50 @@ using WINDOWS_TEMPLATE_STUDIO.Helpers;
 using WINDOWS_TEMPLATE_STUDIO.Models;
 using WINDOWS_TEMPLATE_STUDIO.Services;
 
+using WinUI = Microsoft.UI.Xaml.Controls;
+
 namespace WINDOWS_TEMPLATE_STUDIO.Views
 {
-    // TODO WTS: You can edit the text for the menu in String/en-US/Resources.resw
-    // You can show pages in different ways (update main view, navigate, right pane, new windows or dialog) using MenuNavigationHelper class.
-    // Read more about MenuBar project type here:
-    // https://github.com/Microsoft/WindowsTemplateStudio/blob/release/docs/UWP/projectTypes/menubar.md
+    // TODO WTS: Change the icons and titles for all NavigationViewItems in ShellPage.xaml.
     public sealed partial class ShellPage : Page, INotifyPropertyChanged
     {
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
 
+        private bool _isBackEnabled;
+        private WinUI.NavigationViewItem _selected;
+        private UserData _user;
+        private bool _isBusy;
         private bool _isLoggedIn;
         private bool _isAuthorized;
 
         private IdentityService IdentityService => Singleton<IdentityService>.Instance;
+
+        private UserDataService UserDataService => Singleton<UserDataService>.Instance;
+
+        public bool IsBackEnabled
+        {
+            get { return _isBackEnabled; }
+            set { Set(ref _isBackEnabled, value); }
+        }
+
+        public WinUI.NavigationViewItem Selected
+        {
+            get { return _selected; }
+            set { Set(ref _selected, value); }
+        }
+
+        public UserData User
+        {
+            get { return _user; }
+            set { Set(ref _user, value); }
+        }
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { Set(ref _isBusy, value); }
+        }
 
         public bool IsLoggedIn
         {
@@ -45,13 +77,22 @@ namespace WINDOWS_TEMPLATE_STUDIO.Views
         public ShellPage()
         {
             InitializeComponent();
-            NavigationService.Frame = shellFrame;
-            MenuNavigationHelper.Initialize(splitView, rightFrame);
-            IdentityService.LoggedIn += OnLoggedIn;
-            IdentityService.LoggedOut += OnLoggedOut;
+            DataContext = this;
+            Initialize();
         }
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private void Initialize()
+        {
+            NavigationService.Frame = shellFrame;
+            NavigationService.NavigationFailed += Frame_NavigationFailed;
+            NavigationService.Navigated += Frame_Navigated;
+            navigationView.BackRequested += OnBackRequested;
+            IdentityService.LoggedIn += OnLoggedIn;
+            IdentityService.LoggedOut += OnLoggedOut;
+            UserDataService.UserDataUpdated += OnUserDataUpdated;
+        }
+
+        private async void OnLoaded(object sender, RoutedEventArgs e)
         {
             // Keyboard accelerators are added here to avoid showing 'Alt + left' tooltip on the page.
             // More info on tracking issue https://github.com/Microsoft/microsoft-ui-xaml/issues/8
@@ -59,16 +100,24 @@ namespace WINDOWS_TEMPLATE_STUDIO.Views
             KeyboardAccelerators.Add(_backKeyboardAccelerator);
             IsLoggedIn = IdentityService.IsLoggedIn();
             IsAuthorized = IsLoggedIn && IdentityService.IsAuthorized();
+            User = await UserDataService.GetUserAsync();
+        }
+
+        private void OnUserDataUpdated(object sender, UserData userData)
+        {
+            User = userData;
         }
 
         private void OnLoggedIn(object sender, EventArgs e)
         {
             IsLoggedIn = true;
             IsAuthorized = IsLoggedIn && IdentityService.IsAuthorized();
+            IsBusy = false;
         }
 
         private void OnLoggedOut(object sender, EventArgs e)
         {
+            User = null;
             IsLoggedIn = false;
             IsAuthorized = false;
             CleanRestrictedPagesFromNavigationHistory();
@@ -89,35 +138,90 @@ namespace WINDOWS_TEMPLATE_STUDIO.Views
             var isCurrentPageRestricted = Attribute.IsDefined(currentPage.GetType(), typeof(Restricted));
             if (isCurrentPageRestricted)
             {
-                if (NavigationService.CanGoBack)
+                NavigationService.GoBack();
+            }
+        }
+
+        private async void OnUserProfile(object sender, RoutedEventArgs e)
+        {
+            if (IsLoggedIn)
+            {
+                NavigationService.Navigate<SettingsPage>();
+            }
+            else
+            {
+                IsBusy = true;
+                var loginResult = await IdentityService.LoginAsync();
+                if (loginResult != LoginResultType.Success)
                 {
-                    NavigationService.GoBack();
-                }
-                else
-                {
-                    MenuNavigationHelper.UpdateView(typeof(MainPage));
+                    await AuthenticationHelper.ShowLoginErrorAsync(loginResult);
+                    IsBusy = false;
                 }
             }
         }
 
-        private void ShellMenuItemClick_Views_Main(object sender, RoutedEventArgs e)
+        private void Frame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            MenuNavigationHelper.UpdateView(typeof(MainPage));
+            throw e.Exception;
         }
 
-        private void ShellMenuItemClick_Views_TabView(object sender, RoutedEventArgs e)
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
         {
-            MenuNavigationHelper.UpdateView(typeof(TabViewPage));
+            IsBackEnabled = NavigationService.CanGoBack;
+            if (e.SourcePageType == typeof(SettingsPage))
+            {
+                Selected = navigationView.SettingsItem as WinUI.NavigationViewItem;
+                return;
+            }
+
+            var selectedItem = GetSelectedItem(navigationView.MenuItems, e.SourcePageType);
+            if (selectedItem != null)
+            {
+                Selected = selectedItem;
+            }
         }
 
-        private void ShellMenuItemClick_File_Settings(object sender, RoutedEventArgs e)
+        private WinUI.NavigationViewItem GetSelectedItem(IEnumerable<object> menuItems, Type pageType)
         {
-            MenuNavigationHelper.OpenInRightPane(typeof(SettingsPage));
+            foreach (var item in menuItems.OfType<WinUI.NavigationViewItem>())
+            {
+                if (IsMenuItemForPageType(item, pageType))
+                {
+                    return item;
+                }
+
+                var selectedChild = GetSelectedItem(item.MenuItems, pageType);
+                if (selectedChild != null)
+                {
+                    return selectedChild;
+                }
+            }
+
+            return null;
         }
 
-        private void ShellMenuItemClick_File_Exit(object sender, RoutedEventArgs e)
+        private bool IsMenuItemForPageType(WinUI.NavigationViewItem menuItem, Type sourcePageType)
         {
-            Application.Current.Exit();
+            var pageType = menuItem.GetValue(NavHelper.NavigateToProperty) as Type;
+            return pageType == sourcePageType;
+        }
+
+        private void OnItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.IsSettingsInvoked)
+            {
+                NavigationService.Navigate(typeof(SettingsPage), null, args.RecommendedNavigationTransitionInfo);
+            }
+            else if (args.InvokedItemContainer is WinUI.NavigationViewItem selectedItem)
+            {
+                var pageType = selectedItem.GetValue(NavHelper.NavigateToProperty) as Type;
+                NavigationService.Navigate(pageType, null, args.RecommendedNavigationTransitionInfo);
+            }
+        }
+
+        private void OnBackRequested(WinUI.NavigationView sender, WinUI.NavigationViewBackRequestedEventArgs args)
+        {
+            NavigationService.GoBack();
         }
 
         private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key, VirtualKeyModifiers? modifiers = null)

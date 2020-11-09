@@ -54,7 +54,7 @@ namespace WINDOWS_TEMPLATE_STUDIO.Services
 
         public static void GoForward() => Frame.GoForward();
 
-        public static bool Navigate(Type pageType, object parameter = null, NavigationTransitionInfo infoOverride = null, bool clearNavigation = false)
+        public static bool Navigate(Type pageType, object parameter = null, NavigationTransitionInfo infoOverride = null)
         {
             if (pageType == null || !pageType.IsSubclassOf(typeof(Page)))
             {
@@ -64,7 +64,6 @@ namespace WINDOWS_TEMPLATE_STUDIO.Services
             // Don't open the same page multiple times
             if (Frame.Content?.GetType() != pageType || (parameter != null && !parameter.Equals(_lastParamUsed)))
             {
-                Frame.Tag = clearNavigation;
                 var navigationResult = Frame.Navigate(pageType, parameter, infoOverride);
                 if (navigationResult)
                 {
@@ -79,9 +78,9 @@ namespace WINDOWS_TEMPLATE_STUDIO.Services
             }
         }
 
-        public static bool Navigate<T>(object parameter = null, NavigationTransitionInfo infoOverride = null, bool clearNavigation = false)
+        public static bool Navigate<T>(object parameter = null, NavigationTransitionInfo infoOverride = null)
             where T : Page
-            => Navigate(typeof(T), parameter, infoOverride, clearNavigation);
+            => Navigate(typeof(T), parameter, infoOverride);
 
         private static void RegisterFrameEvents()
         {
@@ -103,19 +102,6 @@ namespace WINDOWS_TEMPLATE_STUDIO.Services
 
         private static void Frame_NavigationFailed(object sender, NavigationFailedEventArgs e) => NavigationFailed?.Invoke(sender, e);
 
-        private static void Frame_Navigated(object sender, NavigationEventArgs e)
-        {
-            var frame = sender as Frame;
-            if (frame != null)
-            {
-                bool clearNavigation = (bool)frame.Tag;
-                if (clearNavigation)
-                {
-                    frame.BackStack.Clear();
-                }
-
-                Navigated?.Invoke(sender, e);
-            }
-        }
+        private static void Frame_Navigated(object sender, NavigationEventArgs e) => Navigated?.Invoke(sender, e);
     }
 }
