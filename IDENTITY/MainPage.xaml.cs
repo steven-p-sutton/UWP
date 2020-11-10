@@ -20,6 +20,9 @@ namespace IDENTITY
 {
     public sealed partial class MainPage : Page
     {
+        // Temp added to break & capture the callback URI to be used later in code
+        string redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker
+                    .GetCurrentApplicationCallbackUri().ToString();
 
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
@@ -27,7 +30,7 @@ namespace IDENTITY
         // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
-        private const string ClientId = "[Application Id pasted from the application registration portal]";
+        private const string ClientId = "W8MExq7apTvt_i.Oq_tCOlIL.vz96WES.1";
 
         private const string Tenant = "common"; // Alternatively "[Enter your tenant, as obtained from the Azure portal, e.g. kko365.onmicrosoft.com]"
         private const string Authority = "https://login.microsoftonline.com/" + Tenant;
@@ -87,7 +90,7 @@ namespace IDENTITY
             PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithAuthority(Authority)
                 .WithUseCorporateNetwork(false)
-                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+                .WithDefaultRedirectUri()
                  .WithLogging((level, message, containsPii) =>
                  {
                      Debug.WriteLine($"MSAL: {level} {message} ");

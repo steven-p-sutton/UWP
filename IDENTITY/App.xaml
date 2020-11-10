@@ -13,8 +13,15 @@
         MICROSOFT INDENTITY PLATFORM
             Microsoft identity platform documentation
                 https://docs.microsoft.com/en-us/azure/active-directory/develop/
+                  
+            What is the Microsoft identity platform?
+                https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview#:~:text=Microsoft%20identity%20platform%20%28v2.0%29%20overview%201%20Getting%20started.,local%20identities%2C%20see%20the%20Azure%20AD%20B2C%20overview.
+            
+            Get a token from the token cache using MSAL.NET
+                https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-acquire-token-silently
     
-                1. Quickstart: Set up a tenant
+        Quickstart (Prerequisites for the Tutorial app later on below)
+            1. Quickstart: Set up a tenant
                    https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant
     
                     Azure Portal (Tennant info)
@@ -40,7 +47,7 @@
                         App Name = Identity
                         Identity App URL = https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Overview/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
  
-                        ClientID = 4e910d4d-279d-4966-887a-ae7da61efcac (Identity)
+                        ***** DO NOT USE ***** ClientID = 4e910d4d-279d-4966-887a-ae7da61efcac (Identity)
                         TennantID = 0fbf8d18-6a4f-4f2d-a502-859652129402 (ConductUs)
     
                     Configure platform settings
@@ -86,21 +93,18 @@
     
                 6. How to: Sign in any Azure Active Directory user using the multi-tenant application pattern
                    https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant
-    
-    
-    
-                
-            What is the Microsoft identity platform?
-                https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview#:~:text=Microsoft%20identity%20platform%20%28v2.0%29%20overview%201%20Getting%20started.,local%20identities%2C%20see%20the%20Azure%20AD%20B2C%20overview.
-            
-            Get a token from the token cache using MSAL.NET
-                https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-acquire-token-silently
+
     
             Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
+            (Requires the Quickstart Azure Identity above)
+    
                 https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp
     
                 Setup You Project
                     https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp#set-up-your-project
+    
+    
+    redirectURI = "ms-app://s-1-15-2-3681533155-3092409893-1745025132-1766842676-464727204-571464501-2268279141/"
 -->
 
 
