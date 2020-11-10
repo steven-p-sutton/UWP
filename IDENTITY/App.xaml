@@ -103,8 +103,11 @@
                 Setup You Project
                     https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp#set-up-your-project
     
+                    Break and get the value like the one below & paste into App Portal on Azure.App-Portal.Authentication.RedirectUri
+                    redirectURI = "ms-app://s-1-15-2-3681533155-3092409893-1745025132-1766842676-464727204-571464501-2268279141/"
     
-    redirectURI = "ms-app://s-1-15-2-3681533155-3092409893-1745025132-1766842676-464727204-571464501-2268279141/"
+                    https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+    
 -->
 
 
