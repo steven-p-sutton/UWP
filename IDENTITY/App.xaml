@@ -1,22 +1,106 @@
-﻿<!--
+﻿<Application
+    x:Class="IDENTITY.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IDENTITY">
+</Application>
+    
+ <!--
         XAML Controls Gallery (install to try out controls described)
         https://www.microsoft.com/en-us/p/xaml-controls-gallery/9msvh128x2zt?activetab=pivot:overviewtab
         https://github.com/Microsoft/Xaml-Controls-Gallery
     
         MICROSOFT INDENTITY PLATFORM
+            Microsoft identity platform documentation
+                https://docs.microsoft.com/en-us/azure/active-directory/develop/
+    
+                1. Quickstart: Set up a tenant
+                   https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant
+    
+                    Azure Portal (Tennant info)
+                        https://portal.azure.com/#home
+    
+                        Create Tennant URL
+                            https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview
+    
+                        TennantID = f8cdef31-a31e-4b4a-93e4-5f571e91255a (Existing unnamed)
+                                  = 0fbf8d18-6a4f-4f2d-a502-859652129402 (ConductUs)
+                        Organization Name = ConductUs
+                        Domain = StevenPSutton@onmicrosoft.com
+                        ConductUs Tennant URL = https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview
+    
+                2. Quickstart: Register an application with the Microsoft identity platform
+                    https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
+    
+                    Register an App
+                        https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps
+    
+                        https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Overview/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+ 
+                        App Name = Identity
+                        Identity App URL = https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Overview/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+ 
+                        ClientID = 4e910d4d-279d-4966-887a-ae7da61efcac (Identity)
+                        TennantID = 0fbf8d18-6a4f-4f2d-a502-859652129402 (ConductUs)
+    
+                    Configure platform settings
+                        Added Authentication Platform for UWP
+                            https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
+    
+                            https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+    
+                            Redirect URL = msal4e910d4d-279d-4966-887a-ae7da61efcac://auth
+    
+                    Add credentials
+                        https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-credentials
+    
+                        https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Credentials/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+    
+                        Client Secret (ClientID) = W8MExq7apTvt_i.Oq_tCOlIL.vz96WES.1 (UWP Quickstart Identity tutorial)
+    
+                3. Quickstart: Configure an application to expose a web API
+                   https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis
+                
+                    Register the web API
+                        https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis#register-the-web-api
+                        
+                        Add Scope
+                            https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis#add-a-scope
+    
+                            https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/ProtectAnAPI/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+    
+                            Application Id URI = https://conduct-us.com/api
+                        
+                            https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/ProtectAnAPI/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+    
+                4. Quickstart: Configure a client application to access a web API
+                   https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis
+    
+                   API Permissions
+                        https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-your-web-api
+    
+                        https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/CallAnAPI/quickStartType//sourceType/Microsoft_AAD_IAM/appId/4e910d4d-279d-4966-887a-ae7da61efcac/objectId/a7b95f0e-fd60-4b05-96ce-0639d3af7e24/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADMyOrg/servicePrincipalCreated/true
+    
+                5. Quickstart: Modify the accounts supported by an application
+                   https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-modify-supported-accounts
+    
+                6. How to: Sign in any Azure Active Directory user using the multi-tenant application pattern
+                   https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant
+    
+    
+    
+                
+            What is the Microsoft identity platform?
+                https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview#:~:text=Microsoft%20identity%20platform%20%28v2.0%29%20overview%201%20Getting%20started.,local%20identities%2C%20see%20the%20Azure%20AD%20B2C%20overview.
+            
+            Get a token from the token cache using MSAL.NET
+                https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-acquire-token-silently
     
             Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
                 https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp
     
                 Setup You Project
                     https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp#set-up-your-project
-
 -->
-    
-<Application
-    x:Class="IDENTITY.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:IDENTITY">
 
-</Application>
+
